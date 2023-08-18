@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: strimzi
+  namespace: argocd
+
+  # Add this finalizer ONLY if you want these to cascade delete (A cascade delete, deletes both the app and its resources, rather than only the app.)
+  # finalizers:
+  #   - resources-finalizer.argocd.argoproj.io
+
+spec:
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+
+  source:
+    chart: strimzi-kafka-operator
+    repoURL: "https://strimzi.io/charts"
+    targetRevision: 0.1.1
+    # helm:
+    #   # https://github.com/grafana/helm-charts/blob/main/charts/tempo/values.yaml
+    #   parameters:
+    #     - name: tempo.resources.requests.memory
+    #       value: "512Mi"
+    #     - name: tempo.resources.limits.memory
+    #       value: "1.5Gi"
+    #     - name: tempo.resources.requests.cpu
+    #       value: "100m"
+    #     - name: tempo.resources.limits.cpu
+    #       value: "150m"
+
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: observability
