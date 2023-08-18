@@ -17,7 +17,7 @@ spec:
 
   source:
     chart: strimzi-kafka-operator
-    repoURL: "https://strimzi.io/charts"
+    repoURL: "oci://quay.io/strimzi-helm/strimzi-kafka-operator"
     targetRevision: 0.1.1
     # helm:
     #   # https://github.com/grafana/helm-charts/blob/main/charts/tempo/values.yaml
