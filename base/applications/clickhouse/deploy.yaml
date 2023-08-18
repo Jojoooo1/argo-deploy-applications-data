@@ -18,7 +18,6 @@ spec:
         role: altinity-dashboard
 
     spec:
-      serviceAccountName: postgres-client
       containers:
         - name: altinity-dashboard
           image: ghcr.io/altinity/altinity-dashboard:latest
