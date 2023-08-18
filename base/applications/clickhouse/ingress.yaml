@@ -26,4 +26,4 @@ spec:
               service:
                 name: altinity-dashboard
                 port:
-                  number: 8080
+                  number: 80

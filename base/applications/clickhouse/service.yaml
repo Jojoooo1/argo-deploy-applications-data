@@ -9,6 +9,6 @@ spec:
     application: altinity-dashboard
     role: altinity-dashboard
   ports:
-    - port: 8080
+    - port: 80
       protocol: TCP
       targetPort: 8080
