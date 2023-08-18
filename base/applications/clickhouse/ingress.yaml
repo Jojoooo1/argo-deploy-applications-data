@@ -20,7 +20,8 @@ spec:
     - host: altinity.local.com.br
       http:
         paths:
-          - pathType: Prefix
+          - path: "*"
+            pathType: Prefix
             backend:
               service:
                 name: altinity-dashboard
