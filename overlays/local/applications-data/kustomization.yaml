@@ -3,5 +3,5 @@ kind: Kustomization
 
 resources:
   - ../../../base/applications-data/strimzi-helm.yaml
-  - ../../../base/applications-data/clickhouse-operator.yaml
+  - ../../../base/applications-data/clickhouse-operator-kust.yaml
 
