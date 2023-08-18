@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: altinity-dashboard
-  namespace: altinity-dashboard
+  namespace: clickhouse
 spec:
   type: ClusterIP
   selector:
