@@ -21,4 +21,5 @@ spec:
       containers:
         - name: altinity-dashboard
           image: ghcr.io/altinity/altinity-dashboard:latest
-          
+          ports:
+            - containerPort: 8080          
