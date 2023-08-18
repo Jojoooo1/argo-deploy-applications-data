@@ -4,4 +4,7 @@ kind: Kustomization
 namespace: clickhouse
 
 resources:
+ - deploy.yaml
+ - ingress.yaml
+ - service.yaml
  - https://github.com/Altinity/clickhouse-operator/raw/0.21.3/deploy/operator/clickhouse-operator-install-bundle.yaml

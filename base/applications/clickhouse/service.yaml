@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: altinity-dashboard
+  namespace: altinity-dashboard
+spec:
+  type: ClusterIP
+  selector:
+    application: altinity-dashboard
+    role: altinity-dashboard
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: altinity-dashboard
+  namespace: clickhouse
+  labels:
+    application: altinity-dashboard
+    role: altinity-dashboard
+spec:
+  selector:
+    matchLabels:
+      application: altinity-dashboard
+      role: altinity-dashboard
+  template:
+    metadata:
+      labels:
+        application: altinity-dashboard
+        role: altinity-dashboard
+
+    spec:
+      serviceAccountName: postgres-client
+      containers:
+        - name: altinity-dashboard
+          image: ghcr.io/altinity/altinity-dashboard:latest
+          
