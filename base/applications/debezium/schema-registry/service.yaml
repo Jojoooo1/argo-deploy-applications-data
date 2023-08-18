@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: schema-registry
+  namespace: debezium
+spec:
+  type: ClusterIP
+  selector:
+    application: schema-registry
+    role: schema-registry
+  ports:
+    - port: 8081
+      protocol: TCP
+      targetPort: 8081

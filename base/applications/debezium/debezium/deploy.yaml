@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: debezium
+  namespace: debezium
+  labels:
+    application: debezium
+    role: debezium-connect
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  replicas: 1
+  selector:
+    matchLabels:
+      application: debezium
+      role: debezium-connect
+  template:
+    metadata:
+      labels:
+        application: debezium
+        role: debezium-connect
+
+    spec:
+      serviceAccountName: postgres-client
+      containers:
+        - name: debezium
+          image: jojoooo1/debezium-with-confluent
+          envFrom:
+            - configMapRef:
+                name: debezium
+          ports:
+            - containerPort: 8083
+            
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8083
+            initialDelaySeconds: 120
+            periodSeconds: 240
+            timeoutSeconds: 240
+            successThreshold: 1
+            failureThreshold: 3
+
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8083
+            initialDelaySeconds: 45
+            periodSeconds: 45
+            timeoutSeconds: 120
+            successThreshold: 1
+            failureThreshold: 6
+
+          resources:
+            requests:
+              memory: "2.5Gi"
+              cpu: "400m"
+            limits:
+              memory: "2.5Gi"
+              cpu: "400m"

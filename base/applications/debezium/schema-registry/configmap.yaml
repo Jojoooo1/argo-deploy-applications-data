@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: schema-registry
+  namespace: debezium
+data:
+  # https://docs.confluent.io/platform/7.0/schema-registry/installation/config.html
+
+  SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+  SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: local.kafka.com:9094:9094
+
+  SCHEMA_REGISTRY_SCHEMA_REGISTRY_GROUP_ID: schema-registry-${ARGOCD_ENV_ENV}
+  SCHEMA_REGISTRY_KAFKASTORE_TOPIC: _schemas_local
+  SCHEMA_REGISTRY_KAFKASTORE_TIMEOUT_MS: "2000"
+
+  SCHEMA_REGISTRY_KAFKASTORE_SASL_MECHANISM: SCRAM-SHA-256
+  SCHEMA_REGISTRY_KAFKASTORE_SECURITY_PROTOCOL: SASL_SSL
+  SCHEMA_REGISTRY_KAFKASTORE_SASL_JAAS_CONFIG: org.apache.kafka.common.security.scram.ScramLoginModule required username="username" password="password";

@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: debezium-ui
+  namespace: debezium
+spec:
+  selector:
+    application: debezium-ui
+    role: debezium-ui
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 8080

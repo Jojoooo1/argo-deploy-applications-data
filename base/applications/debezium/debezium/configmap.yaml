@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: debezium-configmap
+  namespace: debezium
+data:
+
+  REST_HOST_NAME: 0.0.0.0
+  BOOTSTRAP_SERVERS: local.kafka.com:9094
+  HEAP_OPTS: -XX:MinRAMPercentage=60.0 -XX:MaxRAMPercentage=75.0
+  
+  KEY_CONVERTER: io.confluent.connect.avro.AvroConverter
+  VALUE_CONVERTER: io.confluent.connect.avro.AvroConverter
+
+  GROUP_ID: local-db-${ARGOCD_ENV_ENV}-01 # unique name for the debezium connect group
+  CONFIG_STORAGE_TOPIC: local-db-${ARGOCD_ENV_ENV}-config # topic to use for storing connector and task configurations
+  OFFSET_STORAGE_TOPIC: local-db-${ARGOCD_ENV_ENV}-offsets # topic to use for storing offsets
+  STATUS_STORAGE_TOPIC: local-db-${ARGOCD_ENV_ENV}-status # topic to use for storing statuses
+
+
+  # Note: The maximum size of a request in bytes. This setting will limit the number of record batches the producer will send in a single request to avoid sending huge requests. 
+  CONNECT_MAX_REQUEST_SIZE: "10485760" # default 1048576
+
+  CONNECT_SASL_MECHANISM: SCRAM-SHA-256
+  CONNECT_SECURITY_PROTOCOL: SASL_SSL
+  CONNECT_SASL_JAAS_CONFIG: org.apache.kafka.common.security.scram.ScramLoginModule required username="username" password="password";
+  
+  CONNECT_PRODUCER_SASL_MECHANISM: SCRAM-SHA-256
+  CONNECT_PRODUCER_SECURITY_PROTOCOL: SASL_SSL
+  CONNECT_PRODUCER_SASL_JAAS_CONFIG: org.apache.kafka.common.security.scram.ScramLoginModule required username="username" password="password";
+
+  CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+  CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081

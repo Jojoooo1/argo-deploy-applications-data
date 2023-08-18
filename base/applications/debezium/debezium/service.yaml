@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: debezium
+  namespace: debezium
+spec:
+  type: ClusterIP
+  selector:
+    application: debezium
+    role: debezium-connect
+  ports:
+    - port: 8083
+      protocol: TCP
+      targetPort: 8083

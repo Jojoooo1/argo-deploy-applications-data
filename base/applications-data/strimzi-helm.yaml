@@ -19,17 +19,6 @@ spec:
     chart: strimzi-kafka-operator
     repoURL: https://strimzi.io/charts
     targetRevision: 0.36.1
-    # helm:
-    #   # https://github.com/grafana/helm-charts/blob/main/charts/tempo/values.yaml
-    #   parameters:
-    #     - name: tempo.resources.requests.memory
-    #       value: "512Mi"
-    #     - name: tempo.resources.limits.memory
-    #       value: "1.5Gi"
-    #     - name: tempo.resources.requests.cpu
-    #       value: "100m"
-    #     - name: tempo.resources.limits.cpu
-    #       value: "150m"
 
   destination:
     server: "https://kubernetes.default.svc"
