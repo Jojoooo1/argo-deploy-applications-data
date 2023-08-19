@@ -41,7 +41,7 @@ spec:
             hostname: conduktor.local.com.br
 
     - chart: postgres
-      repoURL: docker.io/bitnamicharts
+      repoURL: docker.io/bitnamicharts/postgres
       targetRevision: 12.8.2
       # https://github.com/bitnami/charts/tree/main/bitnami/postgresql
       helm:
