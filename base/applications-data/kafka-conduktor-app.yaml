@@ -40,9 +40,9 @@ spec:
             ingressClassName: nginx
             hostname: conduktor.local.com.br
 
-    - chart: postgres
-      repoURL: docker.io/bitnamicharts/postgres
-      targetRevision: 12.8.2
+    - chart: bitnamicharts/postgres
+      repoURL: registry-1.docker.io
+      targetRevision: 12.8.3
       # https://github.com/bitnami/charts/tree/main/bitnami/postgresql
       helm:
         values: |
