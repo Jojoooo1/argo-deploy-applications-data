@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: clickhouse
+  name: kafka
   namespace: argocd
 
   # Add this finalizer ONLY if you want these to cascade delete (A cascade delete, deletes both the app and its resources, rather than only the app.)
@@ -15,16 +15,11 @@ spec:
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
 
-  # https://github.com/Altinity/clickhouse-operator/blob/master/docs/quick_start.md#examples
-  # https://github.com/Altinity/clickhouse-operator/tree/master/docs/chi-examples
   sources:
-    - repoURL: https://github.com/Jojoooo1/argo-deploy-applications-data.git
+    - repoURL: https://github.com/Jojoooo1/kustomization-crds.git
       targetRevision: main
-      path: overlays/local/applications/clickhouse
-
-    # await https://github.com/PostHog/HouseWatch/tree/main chart
-
+      path: clickhouse-operator
 
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: clickhouse
+    namespace: kafka
