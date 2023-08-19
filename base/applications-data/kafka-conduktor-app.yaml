@@ -35,9 +35,7 @@ spec:
           ingress:
             enabled: true
             ingressClassName: nginx
-            extraHosts:
-              - name: conduktor.local.com.br
-                path: /
+            hostname: conduktor.local.com.br
 
   destination:
     server: "https://kubernetes.default.svc"
