@@ -3,4 +3,5 @@ kind: Kustomization
 
 resources:
   - ../../../base/applications-data/clickhouse-operator-kust.yaml
+  - ../../../base/applications-data/kafka/kafka-app.yaml
 
