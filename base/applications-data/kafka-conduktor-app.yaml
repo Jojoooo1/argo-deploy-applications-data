@@ -31,8 +31,8 @@ spec:
               email: "admin@conduktor.io"
               password: "admin"
             database:
-              host: "postgresql"
-              name: "postgresql"
+              host: "postgres"
+              name: "postgres"
               password: "postgres"
               username: "postgres"
           ingress:
@@ -49,10 +49,10 @@ spec:
           fullnameOverride: postgres
           postgresql:
             auth:
-              username: postgresql
-              password: postgresql
-              database: postgresql
-              postgresPassword: postgresql
+              username: postgresq
+              password: postgresq
+              database: postgresq
+              postgresPassword: postgres
 
   destination:
     server: "https://kubernetes.default.svc"
