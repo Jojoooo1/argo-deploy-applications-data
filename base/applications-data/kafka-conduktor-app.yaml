@@ -31,7 +31,7 @@ spec:
               email: "admin@conduktor.io"
               password: "admin"
             database:
-              host: "kafka-conduktor-postgresql"
+              host: "postgresql"
               name: "postgresql"
               password: "postgres"
               username: "postgres"
