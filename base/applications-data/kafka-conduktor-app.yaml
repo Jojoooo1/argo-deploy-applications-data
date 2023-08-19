@@ -47,12 +47,11 @@ spec:
       helm:
         values: |
           fullnameOverride: postgres
-          postgresql:
-            auth:
-              postgresPassword: postgres
-              database: conduktor
-              username: postgres
-              password: password
+          auth:
+            postgresPassword: postgres
+            database: conduktor
+            username: postgres
+            password: password
 
   destination:
     server: "https://kubernetes.default.svc"
