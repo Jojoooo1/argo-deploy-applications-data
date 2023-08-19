@@ -31,7 +31,6 @@ spec:
             database:
               password: "postgres"
               username: "postgres"
-            database:
               host: "postgresql"
           ingress:
             enabled: true
