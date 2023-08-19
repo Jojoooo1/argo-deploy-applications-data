@@ -33,7 +33,7 @@ spec:
             database:
               host: postgres
               name: conduktor
-              username: postgres
+              username: conduktor
               password: password
           ingress:
             enabled: true
@@ -50,7 +50,7 @@ spec:
           auth:
             postgresPassword: password
             database: conduktor
-            username: postgres
+            username: conduktor
             password: password
 
   destination:
