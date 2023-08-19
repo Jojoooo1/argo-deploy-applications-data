@@ -53,6 +53,19 @@ spec:
               database: postgresql
               postgresPassword: postgresql
 
+    - targetRevision: 12.8.2
+      chart: bitnami/postgresql
+      repoURL: https://charts.bitnami.com/bitnami
+      # https://github.com/bitnami/charts/tree/main/bitnami/postgresql
+      helm:
+        values: |
+          postgresql:
+            auth:
+              username: postgresql
+              password: postgresql
+              database: postgresql
+              postgresPassword: postgresql
+
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kafka
