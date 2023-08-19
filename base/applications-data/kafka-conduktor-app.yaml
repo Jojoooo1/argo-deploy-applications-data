@@ -26,15 +26,15 @@ spec:
             enabled: false
           config:
             organization:
-              name: "my-org"
+              name: my-org
             admin:
-              email: "admin@conduktor.io"
-              password: "admin"
+              email: admin@conduktor.io
+              password: admin
             database:
-              host: "postgres"
-              name: "postgres"
-              password: "postgres"
-              username: "postgres"
+              host: postgres
+              name: postgres
+              password: "postgres
+              username: postgres
           ingress:
             enabled: true
             ingressClassName: nginx
@@ -49,9 +49,9 @@ spec:
           fullnameOverride: postgres
           postgresql:
             auth:
-              username: postgresq
-              password: postgresq
-              database: postgresq
+              username: postgres
+              password: postgres
+              database: postgres
               postgresPassword: postgres
 
   destination:
