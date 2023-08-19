@@ -48,7 +48,7 @@ spec:
         values: |
           fullnameOverride: postgres
           auth:
-            postgresPassword: postgres
+            postgresPassword: password
             database: conduktor
             username: postgres
             password: password
