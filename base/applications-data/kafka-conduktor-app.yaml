@@ -33,6 +33,12 @@ spec:
               username: "postgres"
             database:
               host: "postgresql"
+          ingress:
+            enabled: true
+            ingressClassName: nginx
+            extraHosts:
+              - name: conduktor.local.com.br
+                path: /
 
   destination:
     server: "https://kubernetes.default.svc"
