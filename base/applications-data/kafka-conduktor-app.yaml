@@ -32,7 +32,7 @@ spec:
               password: admin
             database:
               host: postgres
-              name: postgres
+              name: conduktor
               password: postgres
               username: postgres
           ingress:
@@ -49,10 +49,10 @@ spec:
           fullnameOverride: postgres
           postgresql:
             auth:
+              postgresPassword: postgres
+              database: conduktor
               username: postgres
               password: postgres
-              database: postgres
-              postgresPassword: postgres
 
   destination:
     server: "https://kubernetes.default.svc"
