@@ -50,11 +50,4 @@ spec:
           resources:
             requests:
               storage: 3Gi
-      - name: log-storage-vc-template
-        spec:
-          accessModes:
-            - ReadWriteOnce
-          resources:
-            requests:
-              storage: 2Gi
 
