@@ -89,7 +89,7 @@ spec:
               service:
                 name: chi-clickhouse-01-clickhouse-01-0-0
                 port:
-                  name: http
+                  name: 8123
             path: /
             pathType: ImplementationSpecific
   tls:
