@@ -93,7 +93,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: clickhouse-dashboard
+                name: clickhouse-clickhouse-01
                 port:
                   number: 80
 ---
