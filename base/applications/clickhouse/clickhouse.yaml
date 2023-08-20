@@ -3,12 +3,16 @@ kind: "ClickHouseInstallation"
 metadata:
   name: "pv-log"
 spec:
+  defaults:
+    templates:
+      podTemplate: pod-template-with-volumes
+      dataVolumeClaimTemplate: data-volume-template
   configuration:
     clusters:
       - name: "deployment-pv"
         # Templates are specified for this cluster explicitly
-        templates:
-          podTemplate: pod-template-with-volumes
+        # templates:
+        #   podTemplate: pod-template-with-volumes
         layout:
           shardsCount: 1
           replicasCount: 1
@@ -24,7 +28,8 @@ spec:
                 failureThreshold: 10
                 exec:
                   command:
-                  - wget -qO- localhost:8123/ping
+                  - wget 
+                  - -qO- localhost:8123/ping
                 initialDelaySeconds: 60
                 periodSeconds: 3
                 successThreshold: 1
@@ -33,17 +38,18 @@ spec:
                 failureThreshold: 3
                 exec:
                   command:
-                  - wget -qO- localhost:8123/ping
+                  - wget 
+                  - -qO- localhost:8123/ping
                 initialDelaySeconds: 10
                 periodSeconds: 3
                 successThreshold: 1
                 timeoutSeconds: 1
               volumeMounts:
-                - name: data-storage-vc-template
+                - name: data-volume-template
                   mountPath: /var/lib/clickhouse
 
     volumeClaimTemplates:
-      - name: data-storage-vc-template
+      - name: data-volume-template
         spec:
           accessModes:
             - ReadWriteOnce
