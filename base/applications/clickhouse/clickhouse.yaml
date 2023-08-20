@@ -5,15 +5,23 @@ metadata:
 spec:
   defaults:
     templates:
+      clusterServiceTemplate: clusterip-service-template
       dataVolumeClaimTemplate: data-volume-template
       logVolumeClaimTemplate: log-volume-template
+
   configuration:
     clusters:
       - name: "simple"
         layout:
           shardsCount: 1
           replicasCount: 1
+
   templates:
+    serviceTemplates:
+        - name: clusterip-service-template
+          spec:
+            type: ClusterIP
+
     volumeClaimTemplates:
       - name: data-volume-template
         spec:
