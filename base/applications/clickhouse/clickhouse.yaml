@@ -5,48 +5,35 @@ metadata:
 spec:
   defaults:
     templates:
-      # podTemplate: pod-template-with-volumes
+      podTemplate: pod-template-with-volumes
       dataVolumeClaimTemplate: data-volume-template
 
   configuration:
     clusters:
       - name: "cluster-01"
-        # Templates are specified for this cluster explicitly
-        # templates:
-        #   podTemplate: pod-template-with-volumes
         layout:
           shardsCount: 1
           replicasCount: 1
 
   templates:
-    # podTemplates:
-    #   - name: pod-template-with-volumes
-    #     spec:
-    #       containers:
-    #         - name: clickhouse
-    #           image: clickhouse/clickhouse-server:latest
-    #           livenessProbe:
-    #             failureThreshold: 10
-    #             exec:
-    #               command:
-    #               - sh
-    #               - -c
-    #               - wget -qO- localhost:8123/ping
-    #             initialDelaySeconds: 60
-    #             periodSeconds: 3
-    #             successThreshold: 1
-    #             timeoutSeconds: 1
-    #           readinessProbe:
-    #             failureThreshold: 3
-    #             exec:
-    #               command:
-    #               - sh
-    #               - -c
-    #               - wget -qO- localhost:8123/ping
-    #             initialDelaySeconds: 10
-    #             periodSeconds: 3
-    #             successThreshold: 1
-    #             timeoutSeconds: 1
+    podTemplates:
+      - name: pod-template-with-volumes
+        spec:
+          containers:
+            - name: clickhouse
+              image: clickhouse/clickhouse-server:latest
+              livenessProbe:
+                exec:
+                  command:
+                  - sh
+                  - -c
+                  - wget -qO- localhost:8123/ping
+              readinessProbe:
+                exec:
+                  command:
+                  - sh
+                  - -c
+                  - wget -qO- localhost:8123/ping
 
     volumeClaimTemplates:
       - name: data-volume-template
