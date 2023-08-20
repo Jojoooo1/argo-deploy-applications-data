@@ -88,6 +88,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: clickhouse-clickouse-01
+                name: cluster-service
                 port:
                   number: http
