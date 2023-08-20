@@ -5,6 +5,7 @@ metadata:
 spec:
   defaults:
     templates:
+      # serviceTemplate: svc-template
       podTemplate: pod-template-with-health-check
       dataVolumeClaimTemplate: data-volume-template
 
@@ -16,6 +17,16 @@ spec:
           replicasCount: 1
 
   templates:
+    # serviceTemplates:
+    #   - name: svc-template
+    #     spec:
+    #       ports:
+    #         - name: http
+    #           port: 8123
+    #         - name: tcp
+    #           port: 9000
+    #       type: ClusterIP
+
     podTemplates:
       - name: pod-template-with-health-check
         spec:
@@ -44,6 +55,13 @@ spec:
                 periodSeconds: 3
                 successThreshold: 1
                 timeoutSeconds: 1
+            # resources:
+            #   requests:
+            #     memory: "512Mi"
+            #     cpu: "500m"
+            #   limits:
+            #     memory: "512Mi"
+            #     cpu: "500m"
 
     volumeClaimTemplates:
       - name: data-volume-template
@@ -55,3 +73,22 @@ spec:
             requests:
               storage: 1Gi
 
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: altinity
+  namespace: clickhouse
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: clickhouse.local.com.br
+      http:
+        paths:
+          - path: "/"
+            pathType: Prefix
+            backend:
+              service:
+                name: clickhouse
+                port:
+                  number: 8123
