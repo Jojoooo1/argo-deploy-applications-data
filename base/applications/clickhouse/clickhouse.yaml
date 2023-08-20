@@ -22,6 +22,11 @@ spec:
         generateName: clickhouse-clusterip-service
         spec:
           type: ClusterIP
+          ports:
+            - name: http
+              port: 8123
+            - name: tcp
+              port: 9000
 
     podTemplates:
       - name: pod-template-with-health-check
