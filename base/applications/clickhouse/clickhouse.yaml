@@ -1,11 +1,18 @@
 apiVersion: "clickhouse.altinity.com/v1"
 kind: "ClickHouseInstallation"
 metadata:
-  name: "simple-01"
+  name: "pv-simple"
 spec:
+  defaults:
+    templates:
+      podTemplates: pod-template-with-volumes
+      dataVolumeClaimTemplate: data-volume-template
   configuration:
     clusters:
       - name: "simple"
+        layout:
+          shardsCount: 1
+          replicasCount: 1
   templates:
     podTemplates:
       - name: pod-template-with-volumes
@@ -31,3 +38,13 @@ spec:
                 periodSeconds: 3
                 successThreshold: 1
                 timeoutSeconds: 1
+
+    volumeClaimTemplates:
+      - name: data-volume-template
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1Gi
+
