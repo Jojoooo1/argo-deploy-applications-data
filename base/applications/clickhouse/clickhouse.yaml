@@ -90,4 +90,4 @@ spec:
               service:
                 name: cluster-service
                 port:
-                  number: http
+                  name: http
