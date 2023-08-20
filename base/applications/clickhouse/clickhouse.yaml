@@ -1,31 +1,31 @@
 apiVersion: "clickhouse.altinity.com/v1"
 kind: "ClickHouseInstallation"
 metadata:
-  name: cluster-01
+  name: clickouse-01
 spec:
   defaults:
     templates:
-      # serviceTemplate: svc-template
+      serviceTemplate: svc-template
       podTemplate: pod-template-with-health-check
       dataVolumeClaimTemplate: data-volume-template
 
   configuration:
     clusters:
-      - name: "cluster-01"
+      - name: clickouse-01
         layout:
           shardsCount: 1
           replicasCount: 1
 
   templates:
-    # serviceTemplates:
-    #   - name: svc-template
-    #     spec:
-    #       ports:
-    #         - name: http
-    #           port: 8123
-    #         - name: tcp
-    #           port: 9000
-    #       type: ClusterIP
+    serviceTemplates:
+      - name: clickhouse-01
+        spec:
+          ports:
+            - name: http
+              port: 8123
+            - name: tcp
+              port: 9000
+          type: ClusterIP
 
     podTemplates:
       - name: pod-template-with-health-check
@@ -93,6 +93,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: clickhouse
+                name: clickhouse-01
                 port:
                   name: http
