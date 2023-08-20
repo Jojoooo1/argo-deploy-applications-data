@@ -95,4 +95,4 @@ spec:
               service:
                 name: clickhouse-clickhouse-01
                 port:
-                  name: http
+                  number: 8123
