@@ -93,6 +93,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: clickhouse-clickhouse-01
+                name: clickhouse-clickouse-01
                 port:
                   name: http
