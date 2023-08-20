@@ -87,9 +87,22 @@ spec:
         paths:
           - backend:
               service:
-                name: chi-clickhouse-01-clickhouse-01-0-0
+                name: clickhouse
                 port:
-                  number: 8123
+                  name: http
             path: /
             pathType: ImplementationSpecific
-
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clickhouse
+  namespace: clickhouse
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: http
+  selector:
+    clickhouse.altinity.com/cluster: clickhouse-01
