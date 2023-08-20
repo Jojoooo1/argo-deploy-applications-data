@@ -7,7 +7,6 @@ spec:
     templates:
       clusterServiceTemplate: clusterip-service-template
       dataVolumeClaimTemplate: data-volume-template
-      logVolumeClaimTemplate: log-volume-template
 
   configuration:
     clusters:
@@ -30,10 +29,3 @@ spec:
           resources:
             requests:
               storage: 1Gi
-      - name: log-volume-template
-        spec:
-          accessModes:
-            - ReadWriteOnce
-          resources:
-            requests:
-              storage: 100Mi
