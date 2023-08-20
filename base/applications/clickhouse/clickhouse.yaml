@@ -23,7 +23,7 @@ spec:
           type: ClusterIP
           ports:
             - name: http
-              port: 8123
+              port: 80
               targetPort: 8123
             - name: tcp
               port: 9000
@@ -81,19 +81,21 @@ kind: Ingress
 metadata:
   name: clickhouse
   namespace: clickhouse
+
 spec:
   ingressClassName: nginx
+
   rules:
     - host: clickhouse.local.com.br
       http:
         paths:
-          - backend:
+          - path: "/*"
+            pathType: Prefix
+            backend:
               service:
-                name: clickhouse-clickhouse-01
+                name: clickhouse-dashboard
                 port:
-                  number: 8123
-            path: /*
-            pathType: ImplementationSpecific
+                  number: 80
 ---
 # apiVersion: v1
 # kind: Service
