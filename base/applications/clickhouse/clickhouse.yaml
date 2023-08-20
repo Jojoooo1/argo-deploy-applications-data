@@ -5,8 +5,9 @@ metadata:
 spec:
   defaults:
     templates:
-      podTemplate: pod-template-with-volumes
+      # podTemplate: pod-template-with-volumes
       dataVolumeClaimTemplate: data-volume-template
+
   configuration:
     clusters:
       - name: "deployment-pv"
@@ -53,9 +54,10 @@ spec:
     volumeClaimTemplates:
       - name: data-volume-template
         spec:
+          # storageClassName: gp2-resizable
           accessModes:
             - ReadWriteOnce
           resources:
             requests:
-              storage: 3Gi
+              storage: 1Gi
 
