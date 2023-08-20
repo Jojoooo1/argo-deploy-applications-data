@@ -89,10 +89,10 @@ spec:
     - host: clickhouse.local.com.br
       http:
         paths:
-          - path: "/"
+          - path: /
             pathType: Prefix
             backend:
               service:
-                name: clickhouse-01
+                name: clickhouse-clickhouse-01
                 port:
                   name: http
