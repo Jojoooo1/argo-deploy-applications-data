@@ -28,8 +28,9 @@ spec:
                 failureThreshold: 10
                 exec:
                   command:
-                  - wget 
-                  - -qO- localhost:8123/ping
+                  - sh
+                  - -c
+                  - wget -qO- localhost:8123/ping
                 initialDelaySeconds: 60
                 periodSeconds: 3
                 successThreshold: 1
@@ -38,8 +39,9 @@ spec:
                 failureThreshold: 3
                 exec:
                   command:
-                  - wget 
-                  - -qO- localhost:8123/ping
+                  - sh
+                  - -c
+                  - wget -qO- localhost:8123/ping
                 initialDelaySeconds: 10
                 periodSeconds: 3
                 successThreshold: 1
