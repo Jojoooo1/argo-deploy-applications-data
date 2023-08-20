@@ -19,13 +19,13 @@ spec:
   templates:
     serviceTemplates:
       - name: clickhouse-01
+        type: ClusterIP
         spec:
           ports:
             - name: http
               port: 8123
             - name: tcp
               port: 9000
-          type: ClusterIP
 
     podTemplates:
       - name: pod-template-with-health-check
@@ -95,4 +95,4 @@ spec:
               service:
                 name: clickhouse-clickouse-01
                 port:
-                  name: http
+                  number: 8123
