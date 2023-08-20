@@ -23,7 +23,7 @@ spec:
           type: ClusterIP
           ports:
             - name: http
-              port: 80
+              port: 8123
               targetPort: 8123
             - name: tcp
               port: 9000
@@ -91,7 +91,7 @@ spec:
               service:
                 name: clickhouse-clickhouse-01
                 port:
-                  number: 80
+                  number: 8123
             path: /*
             pathType: ImplementationSpecific
 ---
