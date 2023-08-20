@@ -87,7 +87,7 @@ spec:
         paths:
           - backend:
               service:
-                name: clickhouse-clickhouse-01
+                name: chi-clickhouse-01-clickhouse-01-0-0
                 port:
                   name: http
             path: /
