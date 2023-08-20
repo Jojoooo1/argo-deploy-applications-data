@@ -1,7 +1,7 @@
 apiVersion: "clickhouse.altinity.com/v1"
 kind: "ClickHouseInstallation"
 metadata:
-  name: clickouse-01
+  name: clickhouse-01
 spec:
   defaults:
     templates:
@@ -11,7 +11,7 @@ spec:
 
   configuration:
     clusters:
-      - name: clickouse-01
+      - name: clickhouse-01
         layout:
           shardsCount: 1
           replicasCount: 1
@@ -93,6 +93,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: clickhouse-clickouse-01
+                name: clickhouse-clickhouse-01
                 port:
                   name: http
