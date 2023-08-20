@@ -14,7 +14,9 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
-
+    automated:
+      prune: true
+      selfHeal: true
   sources:
     - repoURL: https://github.com/Jojoooo1/kustomization-crds.git
       targetRevision: main
