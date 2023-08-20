@@ -92,7 +92,4 @@ spec:
                   name: 8123
             path: /
             pathType: ImplementationSpecific
-  tls:
-    - hosts:
-        - clickhouse.local.com.br
-      secretName: clickhouse-tls
+
