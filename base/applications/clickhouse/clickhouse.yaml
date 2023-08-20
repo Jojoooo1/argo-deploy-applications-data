@@ -5,7 +5,7 @@ metadata:
 spec:
   defaults:
     templates:
-      podTemplate: pod-template-with-volumes
+      podTemplate: pod-template-with-health-check
       dataVolumeClaimTemplate: data-volume-template
 
   configuration:
@@ -17,23 +17,33 @@ spec:
 
   templates:
     podTemplates:
-      - name: pod-template-with-volumes
+      - name: pod-template-with-health-check
         spec:
           containers:
             - name: clickhouse
               image: clickhouse/clickhouse-server:latest
               livenessProbe:
+                failureThreshold: 10
                 exec:
                   command:
                   - sh
                   - -c
                   - wget -qO- localhost:8123/ping
+                initialDelaySeconds: 60
+                periodSeconds: 3
+                successThreshold: 1
+                timeoutSeconds: 1
               readinessProbe:
+                failureThreshold: 3
                 exec:
                   command:
                   - sh
                   - -c
                   - wget -qO- localhost:8123/ping
+                initialDelaySeconds: 10
+                periodSeconds: 3
+                successThreshold: 1
+                timeoutSeconds: 1
 
     volumeClaimTemplates:
       - name: data-volume-template
