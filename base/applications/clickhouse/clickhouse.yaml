@@ -88,7 +88,8 @@ spec:
   rules:
     - http:
         paths:
-        - path: /
+        - host: clickhouse.local.com.br
+          path: /
           pathType: Prefix
           backend:
             service:
