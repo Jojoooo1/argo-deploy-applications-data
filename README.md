@@ -4,6 +4,10 @@
 
 Available Applications:
 
+| Applications  | DNS | Username  | Password | Links |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| Nginx-ingress | | | | <https://kubernetes.github.io/ingress-nginx> |
+| ArgoCD |  <http://rabbitmq.local.com.br> | admin  | get password at k3s start script | <https://argo-cd.readthedocs.io/en/stable>  |
 
 ## ArgoCD Folders organization
 
