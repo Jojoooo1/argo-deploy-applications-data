@@ -7,7 +7,7 @@ spec:
   defaults:
     templates:
       clusterServiceTemplate: cluster-service-template
-      podTemplate: pod-with-health-check-template
+      # podTemplate: pod-with-health-check-template
       dataVolumeClaimTemplate: data-volume-template
 
   configuration:
@@ -31,34 +31,34 @@ spec:
             - name: interserver
               port: 9009
 
-    podTemplates:
-      - name: pod-with-health-check-template
-        spec:
-          containers:
-            - name: clickhouse
-              image: clickhouse/clickhouse-server:latest
-              livenessProbe:
-                failureThreshold: 10
-                exec:
-                  command:
-                  - sh
-                  - -c
-                  - wget -qO- localhost:8123/ping
-                initialDelaySeconds: 60
-                periodSeconds: 3
-                successThreshold: 1
-                timeoutSeconds: 1
-              readinessProbe:
-                failureThreshold: 3
-                exec:
-                  command:
-                  - sh
-                  - -c
-                  - wget -qO- localhost:8123/ping
-                initialDelaySeconds: 10
-                periodSeconds: 3
-                successThreshold: 1
-                timeoutSeconds: 1
+    # podTemplates:
+    #   - name: pod-with-health-check-template
+    #     spec:
+    #       containers:
+    #         - name: clickhouse
+    #           image: clickhouse/clickhouse-server:latest
+    #           livenessProbe:
+    #             failureThreshold: 10
+    #             exec:
+    #               command:
+    #               - sh
+    #               - -c
+    #               - wget -qO- localhost:8123/ping
+    #             initialDelaySeconds: 60
+    #             periodSeconds: 3
+    #             successThreshold: 1
+    #             timeoutSeconds: 1
+    #           readinessProbe:
+    #             failureThreshold: 3
+    #             exec:
+    #               command:
+    #               - sh
+    #               - -c
+    #               - wget -qO- localhost:8123/ping
+    #             initialDelaySeconds: 10
+    #             periodSeconds: 3
+    #             successThreshold: 1
+    #             timeoutSeconds: 1
             # resources:
             #   requests:
             #     memory: "512Mi"
