@@ -16,7 +16,7 @@ spec:
       - PrunePropagationPolicy=foreground
 
   sources:
-    - chart: platform-controller
+    - chart: console
       repoURL: https://helm.conduktor.io
       targetRevision: 1.0.1
       # https://github.com/conduktor/conduktor-public-charts/tree/main/charts/console
