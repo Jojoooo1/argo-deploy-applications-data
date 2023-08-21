@@ -15,10 +15,13 @@ spec:
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
 
-  sources:
-    - repoURL: https://github.com/Jojoooo1/argo-deploy-applications-data.git
-      targetRevision: main
-      path: overlays/local/applications/clickhouse
+  source: 
+    chart: clickhouse
+    repoURL: registry-1.docker.io/bitnamicharts
+    targetRevision: 3.6.8
+    # https://github.com/bitnami/charts/tree/main/bitnami/clickhouse
+    # helm:
+    #   values: |
 
   destination:
     server: "https://kubernetes.default.svc"
