@@ -39,7 +39,7 @@ spec:
               kafka:
                 brokers:
                   - kafka-controller-0.kafka-controller-headless.kafka.svc.cluster.local.:9092
-                clientId: console
+                # clientId: console
                 sasl:
                   enabled: true
                   mechanism: SCRAM-SHA-256
