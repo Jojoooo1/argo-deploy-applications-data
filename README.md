@@ -4,8 +4,6 @@
 
 Available Applications:
 
-Available Applications:
-
 | Applications  | DNS | Username  | Password | Links |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Clickhouse | <https://clickhouse.local.com.br/play?user=admin> | admin | password | <https://clickhouse.com/> |
