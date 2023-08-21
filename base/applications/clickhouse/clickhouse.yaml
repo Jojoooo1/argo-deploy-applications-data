@@ -2,6 +2,7 @@ apiVersion: "clickhouse.altinity.com/v1"
 kind: "ClickHouseInstallation"
 metadata:
   name: clickhouse-01
+  namespace: clickhouse
 spec:
   defaults:
     templates:
@@ -19,12 +20,12 @@ spec:
   templates:
     serviceTemplates:
       - name: cluster-service
+        generateName: clickhouse-clusterip-service
         spec:
           type: ClusterIP
           ports:
             - name: http
               port: 8123
-              targetPort: 8123
             - name: tcp
               port: 9000
               targetPort: 9000
@@ -74,32 +75,22 @@ spec:
           resources:
             requests:
               storage: 1Gi
+
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-nginx
+  name: clickhouse-ingress
   namespace: clickhouse
-  annotations:
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    # cert-manager.io/cluster-issuer: letsencrypt-prod
-    # whitelist IPs:
-    # nginx.ingress.kubernetes.io/whitelist-source-range: ""
-
 spec:
   ingressClassName: nginx
-  tls:
-    - secretName: clickhouse-tls
-      hosts:
-        - clickhouse.local.com.br
-
   rules:
-    - host: clickhouse.local.com.br
-      http:
+    - http:
         paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service: clickhouse-clickhouse-01
-                port:
-                  name: http 
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: clickhouse-clusterip-service
+              port:
+                number: 8123     
