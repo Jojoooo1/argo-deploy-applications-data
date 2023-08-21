@@ -58,9 +58,6 @@ spec:
                     - kafka-controller-0.kafka-controller-headless.kafka.svc.cluster.local.:9092
                   username: user
                   password: password
-              console:
-                topicDocumentation:
-                  enabled: true
 
   destination:
     server: "https://kubernetes.default.svc"
