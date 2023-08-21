@@ -45,7 +45,7 @@ spec:
                   username: admin
                   password: password
                 schemaRegistry:
-                  enabled: true
+                  enabled: false
                   tls:
                     enabled: false
                   urls:
