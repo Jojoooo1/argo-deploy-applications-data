@@ -42,9 +42,9 @@ spec:
           enabled: true
           ingressClassName: nginx
           hostname: clickhouse.local.com.br
-        # persistence:
-        #   storageClass: auto-resize
-        #    size: 8Gi
+        persistence:
+          # storageClass: auto-resize
+          size: 8Gi
         # metrics:
         #   enabled: true
         #   serviceMonitor
