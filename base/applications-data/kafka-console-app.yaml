@@ -53,7 +53,7 @@ spec:
                   - http://kafka.kafka.svc.cluster.local:8081
               redpanda:
                 adminApi:
-                  enabled: false
+                  enabled: true
                   urls:
                     - kafka-controller-0.kafka-controller-headless.kafka.svc.cluster.local.:9092
                   username: user
