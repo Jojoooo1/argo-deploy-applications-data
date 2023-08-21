@@ -6,8 +6,8 @@ metadata:
 spec:
   defaults:
     templates:
-      serviceTemplate: cluster-service
-      podTemplate: pod-template-with-health-check
+      clusterServiceTemplate: cluster-service-template
+      podTemplate: pod-with-health-check-template
       dataVolumeClaimTemplate: data-volume-template
 
   configuration:
@@ -19,19 +19,20 @@ spec:
 
   templates:
     serviceTemplates:
-      - name: cluster-service
-        generateName: clickhouse-clusterip-service
+      - name: cluster-service-template
+        generateName: "clickhouse-{chi}"
         spec:
           type: ClusterIP
           ports:
             - name: http
               port: 8123
-            - name: tcp
+            - name: client
               port: 9000
-              targetPort: 9000
+            - name: interserver
+              port: 9009
 
     podTemplates:
-      - name: pod-template-with-health-check
+      - name: pod-with-health-check-template
         spec:
           containers:
             - name: clickhouse
@@ -91,6 +92,6 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: clickhouse-clusterip-service
+              name: clickhouse-clickhouse-01
               port:
                 number: 8123     
