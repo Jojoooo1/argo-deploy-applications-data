@@ -36,9 +36,9 @@ spec:
             config:
               kafka:
                 brokers:
-                  - http://kafka-controller-headless.kafka-controller-0.svc.cluster.local:9092
-                  - http://kafka-controller-headless.kafka-controller-1.svc.cluster.local:9092
-                  - http://kafka-controller-headless.kafka-controller-2.svc.cluster.local:9092
+                  - http://kafka-controller-headless.kafka-controller-0.kafka.svc.cluster.local:9092
+                  - http://kafka-controller-headless.kafka-controller-1.kafka.svc.cluster.local:9092
+                  - http://kafka-controller-headless.kafka-controller-2.kafka.svc.cluster.local:9092
                 tls:
                   enabled: false
                 sasl:
