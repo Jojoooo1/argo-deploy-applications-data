@@ -20,8 +20,37 @@ spec:
     repoURL: registry-1.docker.io/bitnamicharts
     targetRevision: 3.6.8
     # https://github.com/bitnami/charts/tree/main/bitnami/clickhouse
-    # helm:
-    #   values: |
+    helm:
+      values: |
+        shards: 2
+        replicaCount: 3
+        keeper:
+          enabled: true
+        zookeeper:
+          enabled: false
+        resources:
+          # requests:
+          #   memory: "2.5Gi"
+          #   cpu: "1"
+          # limits:
+          #   memory: "2.5Gi"
+          #   cpu: "1"
+        auth:
+          username: default
+          password: ""
+        ingress:
+          enabled: true
+          ingressClassName: nginx
+          hostname: clickhouse.local.com.br
+        # persistence:
+        #   storageClass: auto-resize
+        #    size: 8Gi
+        # metrics:
+        #   enabled: true
+        #   serviceMonitor
+        #     enabled: true
+        #     labels:
+        #       release: observability-kube-prometheus
 
   destination:
     server: "https://kubernetes.default.svc"
