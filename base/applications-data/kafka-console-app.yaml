@@ -55,9 +55,16 @@ spec:
                 adminApi:
                   enabled: true
                   urls:
-                    - kafka-controller-0.kafka-controller-headless.kafka.svc.cluster.local.:9092
+                    - http://kafka-controller-0.kafka-controller-headless.kafka.svc.cluster.local.:9092
                   username: user
                   password: password
+
+  ignoreDifferences:
+    - kind: Secret
+      namespace: redpanda
+      name: redpanda-console
+      jsonPointers:
+        - /data/login-jwt-secret
 
   destination:
     server: "https://kubernetes.default.svc"
