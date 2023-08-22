@@ -19,3 +19,7 @@ Available Applications:
 ### Overlay
 
 Environments folders that inherit from base folder. It uses [kustomize](https://github.com/kubernetes-sigs/kustomize) to allow environment based customization.
+
+### Limitations
+
+- open issue working with clickhouse keeper <https://github.com/bitnami/charts/issues/15935>
