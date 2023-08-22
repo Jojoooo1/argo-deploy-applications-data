@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: dbeaver
 
 resources:
-  - deployment.yaml
+  - ingress.yaml
   - pvc.yaml
   - service.yaml
+  - statefulset.yaml
