@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: dbeaver
+  namespace: dbeaver
+  labels:
+    app: dbeaver
+spec:
+  selector:
+    matchLabels:
+      app: dbeaver
+  serviceName: dbeaver
+  template:
+    metadata:
+      labels:
+        app: dbeaver
+    spec:
+
+      volumes:
+        - name: dbeaver-volume
+          persistentVolumeClaim:
+            claimName: dbeaver-pvc
+
+      containers:
+        - name: dbeaver
+          image: "dbeaver/dbeaver:latest"
+          resources:
+            requests:
+              memory: 512M
+              cpu: 0.2
+            limits:
+              memory: 512M
+              cpu: 0.2
+          volumeMounts:
+            - name: dbeaver-volume
+              mountPath: /opt/cloudbeaver/workspace
+          ports:
+            - containerPort: 8978
+              name: client
+          volumeMounts:
+            - name: workspace
+              mountPath: /opt/dbeaver/workspace

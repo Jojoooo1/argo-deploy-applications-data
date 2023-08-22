@@ -1,0 +1,15 @@
+# Setup Service to provide access to DBeaver for clients
+apiVersion: v1
+kind: Service
+metadata:
+  name: dbeaver
+  namespace: dbeaver
+  labels:
+    app: dbeaver
+spec:
+  ports:
+    - port: 80
+      name: http
+      targetPort: client
+  selector:
+    app: dbeaver
