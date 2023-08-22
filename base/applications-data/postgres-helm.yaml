@@ -31,4 +31,4 @@ spec:
 
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: kafka
+    namespace: postgres
