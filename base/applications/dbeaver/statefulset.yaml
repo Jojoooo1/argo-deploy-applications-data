@@ -23,7 +23,7 @@ spec:
 
       containers:
         - name: dbeaver
-          image: dbeaver/cloudbeaver:latest
+          image: dbeaver/cloudbeaver:23.1.5
           resources:
             requests:
               memory: 512M
