@@ -1,4 +1,4 @@
-# Argo infra personal labs
+# Argo data personal labs
 
 ## Data applications
 
