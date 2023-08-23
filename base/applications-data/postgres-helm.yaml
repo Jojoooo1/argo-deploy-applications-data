@@ -22,7 +22,7 @@ spec:
 
     # https://github.com/bitnami/charts/tree/main/bitnami/postgresql
     helm:
-      values: |
+      valuesObject:
         fullnameOverride: postgres
         auth:
           postgresPassword: password

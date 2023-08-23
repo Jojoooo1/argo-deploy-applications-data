@@ -22,7 +22,7 @@ spec:
     
     # https://github.com/bitnami/charts/tree/main/bitnami/clickhouse
     helm:
-      values: |
+      valuesObject:
         shards: 2 # 2
         replicaCount: 3 # 3
         keeper:
