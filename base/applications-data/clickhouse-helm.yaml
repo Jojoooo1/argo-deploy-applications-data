@@ -26,7 +26,7 @@ spec:
         shards: 2 # 2
         replicaCount: 3 # 3
         keeper:
-          enabled: "true"
+          enabled: true
         zookeeper:
           enabled: false
         resources:
@@ -40,16 +40,16 @@ spec:
           username: admin
           password: password
         ingress:
-          enabled: "true"
+          enabled: true
           ingressClassName: nginx
           hostname: clickhouse.local.com.br
         persistence:
           # storageClass: auto-resize
           size: 8Gi
         # metrics:
-        #   enabled: "true"
+        #   enabled: true
         #   serviceMonitor
-        #     enabled: "true"
+        #     enabled: true
         #     labels:
         #       release: observability-kube-prometheus
 
