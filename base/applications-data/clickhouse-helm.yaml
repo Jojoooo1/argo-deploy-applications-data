@@ -51,7 +51,7 @@ spec:
         #   serviceMonitor
         #     enabled: true
         #     labels:
-        #       release: observability-kube-prometheus
+        #       scrapWith: kube-prometheus-stack
 
   destination:
     server: "https://kubernetes.default.svc"
