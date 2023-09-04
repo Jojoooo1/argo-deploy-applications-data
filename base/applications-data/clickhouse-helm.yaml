@@ -51,7 +51,7 @@ spec:
         #   serviceMonitor
         #     enabled: true
         #     labels:
-        #       scrapWith: kube-prometheus-stack
+        #       prometheus.io/scrap-with: kube-prometheus-stack
 
   destination:
     server: "https://kubernetes.default.svc"
