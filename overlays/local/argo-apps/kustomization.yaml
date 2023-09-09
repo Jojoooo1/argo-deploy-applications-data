@@ -6,5 +6,4 @@ namespace: argocd
 resources:
   - ../../../base/argo-apps/postgres-helm.yaml
   - ../../../base/argo-apps/dbeaver-app.yaml
-  - ../../../base/argo-apps/clickhouse-helm.yaml
 
