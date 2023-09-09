@@ -6,7 +6,6 @@ Available Applications:
 
 | Applications  | DNS | Username  | Password | Links |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Clickhouse | <https://clickhouse.local.com.br/play?user=admin> | admin | password | <https://clickhouse.com> |
 | Postgres | postgres.postgres.svc.cluster.local - database: postgres | admin | password | <https://www.postgresql.org> |
 | Dbeaver | <dbeaver.local.com.br> | cbadmin | cbadmin20 | <https://dbeaver.com/docs/cloudbeaver> |
 
