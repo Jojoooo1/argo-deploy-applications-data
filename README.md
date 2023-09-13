@@ -6,7 +6,7 @@ Available Applications:
 
 | Applications  | DNS | Username  | Password | Links |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Postgres | postgres.postgres.svc.cluster.local - database: postgres | admin | password | <https://www.postgresql.org> |
+| Postgres | postgres.postgres.svc.cluster.local - database: api | user | password | <https://www.postgresql.org> |
 | Dbeaver | <dbeaver.local.com.br> | cbadmin | cbadmin20 | <https://dbeaver.com/docs/cloudbeaver> |
 
 ## ArgoCD Folders organization
