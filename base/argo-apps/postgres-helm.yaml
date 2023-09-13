@@ -29,6 +29,10 @@ spec:
           database: postgres
           username: admin
           password: password
+        primary:
+          # Activate logical replication in order to test CDC
+          extendedConfiguration: |
+            wal_level = logical
 
   destination:
     server: "https://kubernetes.default.svc"
