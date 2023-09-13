@@ -26,8 +26,8 @@ spec:
         fullnameOverride: postgres
         auth:
           postgresPassword: password
-          database: postgres
-          username: admin
+          database: api
+          username: user
           password: password
         primary:
           # Activate logical replication in order to test CDC
