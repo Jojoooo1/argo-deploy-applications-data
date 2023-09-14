@@ -4,6 +4,5 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-  - ../../../base/argo-apps/postgres-helm.yaml
   - ../../../base/argo-apps/dbeaver-app.yaml
 
