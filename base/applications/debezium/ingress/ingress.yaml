@@ -25,7 +25,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: schema-registry
+                name: schema-registry-kafka
                 port:
                   number: 8081
 
