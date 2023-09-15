@@ -24,7 +24,6 @@ spec:
       volumes:
         - name: kafka-tls-secret
           secret:
-            defaultMode: 288
             secretName: kafka-tls-secret
 
       containers:
@@ -55,8 +54,7 @@ spec:
 
           volumeMounts:
             - mountPath: /opt/bitnami/kafka-exporter/certs/
-              name: kafka-certificates
-              readOnly: true
+              name: kafka-tls-secret
 
           ports:
             - containerPort: 8081
