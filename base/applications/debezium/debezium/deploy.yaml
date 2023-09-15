@@ -27,7 +27,7 @@ spec:
       serviceAccountName: postgres-client
       containers:
         - name: debezium
-          image: jojoooo1/debezium-with-confluent
+          image: jojoooo1/debezium-with-confluent:2.3.2-13723
           envFrom:
             - configMapRef:
                 name: debezium
