@@ -38,8 +38,8 @@ spec:
                 fieldRef:
                   fieldPath: status.podIP
 
-            - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_TRUSTSTORE_TYPE
-              value: "PEM"
+            # - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_TRUSTSTORE_TYPE
+            #   value: "PEM"
             - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_TRUSTSTORE_CERTIFICATES
               valueFrom:
                 secretKeyRef:
