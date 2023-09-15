@@ -12,10 +12,10 @@ data:
   KEY_CONVERTER: io.confluent.connect.avro.AvroConverter
   VALUE_CONVERTER: io.confluent.connect.avro.AvroConverter
 
-  GROUP_ID: local-db-${ARGOCD_ENV_ENV}-01 # unique name for the debezium connect group
-  CONFIG_STORAGE_TOPIC: local-db-${ARGOCD_ENV_ENV}-config # topic to use for storing connector and task configurations
-  OFFSET_STORAGE_TOPIC: local-db-${ARGOCD_ENV_ENV}-offsets # topic to use for storing offsets
-  STATUS_STORAGE_TOPIC: local-db-${ARGOCD_ENV_ENV}-status # topic to use for storing statuses
+  GROUP_ID: api-db-local-group
+  CONFIG_STORAGE_TOPIC: api-db-local-config # topic to use for storing connector and task configurations
+  OFFSET_STORAGE_TOPIC: api-db-local-offsets
+  STATUS_STORAGE_TOPIC: api-db-local-status
 
 
   # Note: The maximum size of a request in bytes. This setting will limit the number of record batches the producer will send in a single request to avoid sending huge requests. 
