@@ -1,13 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: schema-registry
+  name: schema-registry-kafka
   namespace: debezium
 spec:
   type: ClusterIP
   selector:
-    application: schema-registry
-    role: schema-registry
+    application: schema-registry-kafka
   ports:
     - port: 8081
       protocol: TCP
