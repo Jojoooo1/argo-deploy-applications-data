@@ -4,8 +4,7 @@ metadata:
   name: schema-registry-kafka
   namespace: debezium
   labels:
-    application: schema-registry
-    role: schema-registry
+    application: schema-registry-kafka
 spec:
   strategy:
     type: RollingUpdate
@@ -15,17 +14,15 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      application: schema-registry
-      role: schema-registry
+      application: schema-registry-kafka
   template:
     metadata:
       labels:
-        application: schema-registry
-        role: schema-registry
+        application: schema-registry-kafka
 
     spec:
       containers:
-        - name: schema-registry
+        - name: schema-registry-kafka
           image: confluentinc/cp-schema-registry:7.0.1
           env:
             - name: SCHEMA_REGISTRY_HOST_NAME
@@ -59,10 +56,10 @@ spec:
             successThreshold: 1
             failureThreshold: 6
 
-          resources:
-            requests:
-              memory: "250Mi"
-              cpu: "200m"
-            limits:
-              memory: "250Mi"
-              cpu: "200m"
+          # resources:
+          #   requests:
+          #     memory: "250Mi"
+          #     cpu: "200m"
+          #   limits:
+          #     memory: "250Mi"
+          #     cpu: "200m"
