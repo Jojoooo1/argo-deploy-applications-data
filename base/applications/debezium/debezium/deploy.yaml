@@ -24,7 +24,7 @@ spec:
         role: debezium-connect
 
     spec:
-      serviceAccountName: postgres-client
+      # serviceAccountName: postgres-client
       containers:
         - name: debezium
           image: jojoooo1/debezium-with-confluent:2.3.2-13723

@@ -20,7 +20,7 @@ spec:
         role: debezium-ui
     spec:
       # Note: needed to create connector from UI
-      serviceAccountName: postgres-client
+      # serviceAccountName: postgres-client
       containers:
         - name: debezium-ui
           image: debezium/debezium-ui:2.2
