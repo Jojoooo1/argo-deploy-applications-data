@@ -5,4 +5,5 @@ namespace: argocd
 
 resources:
   - ../../../base/argo-apps/dbeaver-app.yaml
+  - ../../../base/argo-apps/debezium-app.yaml
 
