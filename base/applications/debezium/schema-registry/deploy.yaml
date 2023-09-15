@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
         - name: schema-registry
-          image: confluentinc/cp-schema-registry:7.0.6
+          image: confluentinc/cp-schema-registry:7.0.1
           env:
             - name: SCHEMA_REGISTRY_HOST_NAME
               valueFrom:
