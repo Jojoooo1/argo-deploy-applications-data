@@ -22,7 +22,7 @@ spec:
 
     spec:
       volumes:
-        - name: kafka-certificates
+        - name: kafka-tls-secret
           secret:
             defaultMode: 288
             secretName: kafka-tls-secret
@@ -38,6 +38,7 @@ spec:
 
             - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_TRUSTSTORE_LOCATION
               value: "/opt/bitnami/kafka-exporter/certs/kafka-ca.crt"
+
             - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_KEYSTORE_LOCATION
               value: "/opt/bitnami/kafka-exporter/certs/kafka.crt"
             - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_KEY_PASSWORD
