@@ -21,6 +21,14 @@ spec:
         application: schema-registry-kafka
 
     spec:
+      volumes:
+        - name: kafka-certs
+          projected:
+            defaultMode: 256
+            sources:
+              - secret:
+                  name: kafka-tls-secret
+
       containers:
         - name: schema-registry-kafka
           image: confluentinc/cp-schema-registry:7.0.1
@@ -30,9 +38,18 @@ spec:
                 fieldRef:
                   fieldPath: status.podIP
 
+            - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_TRUSTSTORE_TYPE
+              value: "PEM"
+            - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_TRUSTSTORE_CERTIFICATES
+              valueFrom:
+                secretKeyRef:
+                  name: kafka-tls-secret
+                  key: kafka-ca.crt
+
           envFrom:
             - configMapRef:
                 name: schema-registry
+   
           ports:
             - containerPort: 8081
 
