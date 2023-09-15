@@ -14,10 +14,11 @@ spec:
   tls:
     - secretName: debezium-tls
       hosts:
-        - schema-registry${ARGOCD_ENV_DNS}.local.com.br
+        - schema-registry.local.com.br
+        - debezium.local.com.br
 
   rules:
-    - host: schema-registry${ARGOCD_ENV_DNS}.local.com.br
+    - host: schema-registry.local.com.br
       http:
         paths:
           - path: /
@@ -27,3 +28,14 @@ spec:
                 name: schema-registry
                 port:
                   number: 8081
+
+    - host: debezium.local.com.br
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: debezium
+                port:
+                  number: 8083
