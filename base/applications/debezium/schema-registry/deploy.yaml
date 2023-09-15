@@ -45,6 +45,11 @@ spec:
                 secretKeyRef:
                   name: kafka-tls-secret
                   key: kafka-ca.crt
+            - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_KEYSTORE_CERTIFICATES
+              valueFrom:
+                secretKeyRef:
+                  name: kafka-tls-secret
+                  key: kafka.crt
 
           envFrom:
             - configMapRef:
