@@ -7,7 +7,9 @@ data:
   # https://docs.confluent.io/platform/7.0/schema-registry/installation/config.html
 
   SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
-  SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: kafka-controller-0.kafka-controller-headless.kafka.svc.cluster.local.:9092
+  SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: kafka-controller-0.kafka-controller-headless.kafka.svc.cluster.local:9092
+
+  SCHEMA_REGISTRY_KAFKASTORE_SSL_IDENTIFICATION_ALORITHM: ""
 
   SCHEMA_REGISTRY_SCHEMA_REGISTRY_GROUP_ID: schema-registry-local
   SCHEMA_REGISTRY_KAFKASTORE_TOPIC: _schemas_local
