@@ -6,7 +6,7 @@ metadata:
 data:
 
   REST_HOST_NAME: 0.0.0.0
-  BOOTSTRAP_SERVERS: kafka-controller-0.kafka-controller-headless.kafka.svc.cluster.local:9092
+  BOOTSTRAP_SERVERS: kafka-controller-0.kafka-controller-headless.kafka.svc.cluster.local:9093
   HEAP_OPTS: -XX:MinRAMPercentage=60.0 -XX:MaxRAMPercentage=75.0
   
   KEY_CONVERTER: io.confluent.connect.avro.AvroConverter
