@@ -37,5 +37,5 @@ data:
   CONNECT_PRODUCER_SECURITY_PROTOCOL: SASL_PLAINTEXT
   CONNECT_PRODUCER_SASL_JAAS_CONFIG: org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="password";
 
-  CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry-kafka:8081
-  CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry-kafka:8081
+  CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry-kafka.debezium.svc.cluster.local:8081
+  CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry-kafka.debezium.svc.cluster.local:8081
