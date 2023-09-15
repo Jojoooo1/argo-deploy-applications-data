@@ -29,6 +29,17 @@ spec:
                 port:
                   number: 8081
 
+    - host: debezium-ui.local.com.br
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: debezium-ui
+                port:
+                  number: 80
+
     - host: debezium.local.com.br
       http:
         paths:
