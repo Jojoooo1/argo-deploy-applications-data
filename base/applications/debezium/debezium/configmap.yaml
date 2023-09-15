@@ -29,13 +29,13 @@ data:
   CONNECT_SECURITY_PROTOCOL: SASL_PLAINTEXT
   CONNECT_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="user" password="password";
 
-  CONNECT_PRODUCER_SASL_MECHANISM: SCRAM-SHA-256
-  CONNECT_PRODUCER_SECURITY_PROTOCOL: SASL_SSL
-  CONNECT_PRODUCER_SASL_JAAS_CONFIG: org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="password";
-
-  # CONNECT_PRODUCER_SASL_MECHANISM: PLAIN
-  # CONNECT_PRODUCER_SECURITY_PROTOCOL: SASL_PLAINTEXT
+  # CONNECT_PRODUCER_SASL_MECHANISM: SCRAM-SHA-256
+  # CONNECT_PRODUCER_SECURITY_PROTOCOL: SASL_SSL
   # CONNECT_PRODUCER_SASL_JAAS_CONFIG: org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="password";
+
+  CONNECT_PRODUCER_SASL_MECHANISM: PLAIN
+  CONNECT_PRODUCER_SECURITY_PROTOCOL: SASL_PLAINTEXT
+  CONNECT_PRODUCER_SASL_JAAS_CONFIG: org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="password";
 
   CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry-kafka.debezium.svc.cluster.local:8081
   CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry-kafka.debezium.svc.cluster.local:8081
