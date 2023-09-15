@@ -40,8 +40,8 @@ spec:
               value: "/opt/bitnami/kafka-exporter/certs/kafka-ca.crt"
             - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_KEYSTORE_LOCATION
               value: "/opt/bitnami/kafka-exporter/certs/kafka.crt"
-            - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_KEYSTORE_PASSWORD
-              value: ""
+            # - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_KEYSTORE_PASSWORD
+            #   value: ""
             - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_KEYSTORE_TYPE
               value: "PEM"
             # - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_TLS_ENABLED
