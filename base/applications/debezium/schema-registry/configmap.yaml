@@ -23,4 +23,4 @@ data:
 
   SCHEMA_REGISTRY_KAFKASTORE_SASL_MECHANISM: PLAINTEXT
   SCHEMA_REGISTRY_KAFKASTORE_SECURITY_PROTOCOL: SASL_PLAINTEXT
-  SCHEMA_REGISTRY_KAFKASTORE_SASL_JAAS_CONFIG: org.apache.kafka.common.security.scram.PlainLoginModule required username="user" password="password";
+  SCHEMA_REGISTRY_KAFKASTORE_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="user" password="password";
