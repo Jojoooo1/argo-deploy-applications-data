@@ -21,11 +21,6 @@ spec:
         application: schema-registry-kafka
 
     spec:
-      volumes:
-        - name: kafka-tls-secret
-          secret:
-            secretName: kafka-tls-secret
-
       containers:
         - name: schema-registry-kafka
           image: confluentinc/cp-schema-registry:7.0.1
@@ -35,31 +30,23 @@ spec:
                 fieldRef:
                   fieldPath: status.podIP
 
-            - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_TRUSTSTORE_TYPE
-              value: "PEM"
-            - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_TRUSTSTORE_LOCATION
-              value: "/opt/bitnami/kafka-exporter/certs/kafka-ca.crt"
+            # - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_TRUSTSTORE_TYPE
+            #   value: "PEM"
+            # - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_TRUSTSTORE_LOCATION
+            #   value: "/opt/bitnami/kafka-exporter/certs/kafka-ca.crt"
 
-            - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_KEYSTORE_TYPE
-              value: "PEM"
-            - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_KEYSTORE_LOCATION
-              value: "/opt/bitnami/kafka-exporter/certs/kafka.crt"
-            - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_KEYSTORE_KEY
-              value: "/opt/bitnami/kafka-exporter/certs/kafka.key"
-            - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_KEYSTORE_PASSWORD
-              value: ""
-
-            # - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_TLS_ENABLED
-            #   value: "true"
-
+            # - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_KEYSTORE_TYPE
+            #   value: "PEM"
+            # - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_KEYSTORE_LOCATION
+            #   value: "/opt/bitnami/kafka-exporter/certs/kafka.crt"
+            # - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_KEYSTORE_KEY
+            #   value: "/opt/bitnami/kafka-exporter/certs/kafka.key"
+            # - name: SCHEMA_REGISTRY_KAFKASTORE_SSL_KEYSTORE_PASSWORD
+            #   value: ""
 
           envFrom:
             - configMapRef:
                 name: schema-registry
-
-          volumeMounts:
-            - mountPath: /opt/bitnami/kafka-exporter/certs/
-              name: kafka-tls-secret
 
           ports:
             - containerPort: 8081

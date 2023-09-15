@@ -13,19 +13,10 @@ data:
   SCHEMA_REGISTRY_KAFKASTORE_TOPIC: _schemas_local
   SCHEMA_REGISTRY_KAFKASTORE_TIMEOUT_MS: "2000"
 
-  SCHEMA_REGISTRY_KAFKASTORE_SASL_MECHANISM: SCRAM-SHA-256
-  SCHEMA_REGISTRY_KAFKASTORE_SECURITY_PROTOCOL: SASL_SSL
-  SCHEMA_REGISTRY_KAFKASTORE_SASL_JAAS_CONFIG: org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="password";
+  # SCHEMA_REGISTRY_KAFKASTORE_SASL_MECHANISM: SCRAM-SHA-256
+  # SCHEMA_REGISTRY_KAFKASTORE_SECURITY_PROTOCOL: SASL_SSL
+  # SCHEMA_REGISTRY_KAFKASTORE_SASL_JAAS_CONFIG: org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="password";
 
-  # SCHEMA_REGISTRY_KAFKASTORE_SASL_MECHANISM: PLAIN
-  # SCHEMA_REGISTRY_KAFKASTORE_SECURITY_PROTOCOL: SASL_PLAINTEXT
-  # SCHEMA_REGISTRY_KAFKASTORE_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="user" password="password";
-
-  
-  # SCHEMA_REGISTRY_KAFKASTORE_SSL_TRUSTSTORE_LOCATION: /mnt/cert/kafka/default/ca.crt
-
-  # ssl.truststore.location=/opt/bitnami/kafka/config/certs/kafka.truststore.jks
-  # ssl.keystore.location=/opt/bitnami/kafka/config/certs/kafka.keystore.jks
-  # ssl.keystore.password=
-  # ssl.truststore.password=
-  # ssl.key.password=
+  SCHEMA_REGISTRY_KAFKASTORE_SASL_MECHANISM: PLAIN
+  SCHEMA_REGISTRY_KAFKASTORE_SECURITY_PROTOCOL: SASL_PLAINTEXT
+  SCHEMA_REGISTRY_KAFKASTORE_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="user" password="password";
