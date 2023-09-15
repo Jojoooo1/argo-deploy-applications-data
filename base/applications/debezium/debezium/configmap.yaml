@@ -21,17 +21,21 @@ data:
   # Note: The maximum size of a request in bytes. This setting will limit the number of record batches the producer will send in a single request to avoid sending huge requests. 
   CONNECT_MAX_REQUEST_SIZE: "10485760" # default 1048576
 
-  CONNECT_SASL_MECHANISM: SCRAM-SHA-256
-  CONNECT_SECURITY_PROTOCOL: SASL_SSL
-  CONNECT_SASL_JAAS_CONFIG: org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="password";
-  
-  CONNECT_PRODUCER_SASL_MECHANISM: SCRAM-SHA-256
-  CONNECT_PRODUCER_SECURITY_PROTOCOL: SASL_SSL
+  # CONNECT_SASL_MECHANISM: SCRAM-SHA-256
+  # CONNECT_SECURITY_PROTOCOL: SASL_SSL
+  # CONNECT_SASL_JAAS_CONFIG: org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="password";
+
+  CONNECT_SASL_MECHANISM: PLAIN
+  CONNECT_SECURITY_PROTOCOL: SASL_PLAINTEXT
+  CONNECT_SASL_JAAS_CONFIG: org.apache.kafka.common.security.plain.PlainLoginModule required username="user" password="password";
+
+  # CONNECT_PRODUCER_SASL_MECHANISM: SCRAM-SHA-256
+  # CONNECT_PRODUCER_SECURITY_PROTOCOL: SASL_SSL
+  # CONNECT_PRODUCER_SASL_JAAS_CONFIG: org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="password";
+
+  CONNECT_PRODUCER_SASL_MECHANISM: PLAIN
+  CONNECT_PRODUCER_SECURITY_PROTOCOL: SASL_PLAINTEXT
   CONNECT_PRODUCER_SASL_JAAS_CONFIG: org.apache.kafka.common.security.scram.ScramLoginModule required username="user" password="password";
 
   CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
   CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
-
-
-  CONNECT_SSL_ENDPOINT_IDENTIFICATION_ALGORITHM: ""
-  CONNECT_ENABLE_SSL_CERTIFICATE_VERIFICATION: "false"
